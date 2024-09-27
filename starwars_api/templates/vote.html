@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote for Your Favorite Star Wars Item</title>
+</head>
+<body>
+<h1>Vote for Your Favorite Star Wars Character, Film, or Starship</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <h2>Characters</h2>
+    <select name="character">
+        <option value="">-- Select a character --</option>
+        {% for character in characters %}
+        <option value="{{ character.id }}">{{ character.name }}</option>
+        {% endfor %}
+    </select>
+
+    <h2>Films</h2>
+    <select name="film">
+        <option value="">-- Select a film --</option>
+        {% for film in films %}
+        <option value="{{ film.id }}">{{ film.title }}</option>
+        {% endfor %}
+    </select>
+
+    <h2>Starships</h2>
+    <select name="starship">
+        <option value="">-- Select a starship --</option>
+        {% for starship in starships %}
+        <option value="{{ starship.id }}">{{ starship.name }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Submit Vote</button>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li class="alert alert-{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</form>
+
+<!-- Button to navigate to the vote list -->
+<br>
+<a href="{% url 'vote-list' %}">
+    <button type="button">View Vote List</button>
+</a>
+</body>
+</html>

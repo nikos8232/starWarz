@@ -1,0 +1,65 @@
+<!-- api/templates/search.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars Search</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 600px; margin: 50px auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px; }
+        input[type="text"] { width: 100%; padding: 10px; margin: 10px 0; }
+        button { padding: 10px 15px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        .result { margin-top: 20px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Search Star Wars Characters, Films, and Starships</h1>
+    <form method="GET" action="{% url 'search-page' %}">
+        <input type="text" name="query" placeholder="Enter your search term..." required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if results %}
+    <div class="result">
+        <h2>Results:</h2>
+
+        {% if results.characters %}
+        <h3>Characters:</h3>
+        <ul>
+            {% for character in results.characters %}
+            <li>{{ character.name }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <h3>No characters found.</h3>
+        {% endif %}
+
+        {% if results.films %}
+        <h3>Films:</h3>
+        <ul>
+            {% for film in results.films %}
+            <li>{{ film.title }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <h3>No films found.</h3>
+        {% endif %}
+
+        {% if results.starships %}
+        <h3>Starships:</h3>
+        <ul>
+            {% for starship in results.starships %}
+            <li>{{ starship.name }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <h3>No starships found.</h3>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>
