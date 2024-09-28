@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # starWarz
 =======
 # StarWars
@@ -16,4 +15,3 @@
 
 
 #### swagger: http://localhost:8000/api/swagger/
->>>>>>> eeb0071 (Initial commit)
