@@ -1,0 +1,14 @@
+[run]
+# Specify which files to include in coverage
+include = */starWarz/*
+
+# Exclude test files or directories
+omit =
+    */tests/*
+    */migrations/*
+    */venv/*
+    */__init__.py
+
+[report]
+# Show line numbers in the report
+show_missing = True
