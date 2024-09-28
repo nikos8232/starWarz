@@ -1,3 +1,0 @@
-Migrations for 'starwars_api':
-  starwars_api\migrations\0002_film_film_id.py
-    - Add field film_id to film
