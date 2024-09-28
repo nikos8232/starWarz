@@ -8,13 +8,11 @@ django = "*"
 djangorestframework = "*"
 pydantic = "*"
 requests = "*"
-
-[dev-packages]
-pytest = "*"
-pytest-django = "*"
-coverage = "*"
 drf-yasg = "*"
 urllib3 = "==1.26.15"
+coverage = "*"
+pytest = "*"
+pytest-django = "*"
 
 [requires]
 python_version = "3.7"
